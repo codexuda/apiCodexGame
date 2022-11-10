@@ -7,6 +7,7 @@ const VentasSchema = new Schema({
     idVenta: {type: String, required: true},
     valor: {type: Number, required: true},
     confirmado: {type: String, required: true},
+    detalleCompra: [{type: Object, required: true}]
     
 
 });

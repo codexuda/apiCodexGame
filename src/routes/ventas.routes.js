@@ -20,16 +20,16 @@ router.get('/:id', async(req, res) => {
 
 //metodo get venta en especifico
 router.post('/', async (req, res) => {
-    const {fecha, idCliente, idVenta, valor, confirmado} = req.body;
-    const ventas = new Ventas({fecha, idCliente, idVenta, valor, confirmado});
+    const {fecha, idCliente, idVenta, valor, confirmado, detalleCompra} = req.body;
+    const ventas = new Ventas({fecha, idCliente, idVenta, valor, confirmado,detalleCompra});
     await ventas.save();
     res.json({status: 'venta guardada'});
 });
 
 //metodo para actualizar
 router.put('/:id', async (req, res) => {
-    const {fecha, idCliente, idVenta, valor, confirmado} = req.body;
-    const newVenta = {fecha, idCliente, idVenta, valor, confirmado};
+    const {fecha, idCliente, idVenta, valor, confirmado,detalleCompra} = req.body;
+    const newVenta = {fecha, idCliente, idVenta, valor, confirmado,detalleCompra};
     await Ventas.findByIdAndUpdate(req.params.id, newVenta);
     res.json({status: 'Venta editada'});
 });

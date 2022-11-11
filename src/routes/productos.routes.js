@@ -4,7 +4,7 @@ const router = express.Router();
 const Productos = require('../models/productos');
 
 //inicio  de crud
-//metodo get todas las tareas
+//metodo para mostrar o read los productos
 router.get('/', async (req, res) => {
 
     const productos = await Productos.find();
